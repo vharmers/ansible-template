@@ -1,0 +1,15 @@
+{{ ansible_managed | comment }}
+[Unit]
+Description=Template Daemon
+After=network.target
+
+[Service]
+User={{ template_user }}
+Group={{ template_group }}
+Type=oneshot
+ExecStart={{ template_script_path }}
+RemainAfterExit=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

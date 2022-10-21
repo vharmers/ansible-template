@@ -1,0 +1,38 @@
+---
+- name: Ensure template package is installed
+  ansible.builtin.package:
+    name: "{{ template_package }}"
+    state: present
+
+- name: Ensure template group exists
+  ansible.builtin.group:
+    name: "{{ template_group }}"
+
+- name: Ensure template user exists
+  ansible.builtin.user:
+    name: "{{ template_user }}"
+    group: "{{ template_group }}"
+    shell: /usr/sbin/nologin
+    home: "{{ template_config_dir }}"
+
+- name: Ensure template script is installed
+  ansible.builtin.copy:
+    src: template.bash
+    dest: "{{ template_script_path }}"
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Ensure systemd service is installed
+  ansible.builtin.template:
+    src: template.service.j2
+    dest: "/etc/systemd/system/{{ template_service }}.service"
+    owner: root
+    group: root
+    mode: 0644
+  register: template_service_install
+
+- name: Ensure systemd updates the service # noqa no-handler
+  ansible.builtin.systemd:
+    daemon_reload: yes
+  when: template_service_install.changed

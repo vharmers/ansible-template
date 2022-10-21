@@ -1,0 +1,8 @@
+---
+template_enabled: yes
+template_config_dir: /etc/template
+template_script_path: /usr/local/bin/template
+template_user: template
+template_group: template
+template_service: template
+template_package: sl

@@ -1,0 +1,7 @@
+---
+- name: Restart template
+  ansible.builtin.service:
+    name: "{{ template_service }}"
+    state: restarted
+  become: yes
+  when: template_enabled

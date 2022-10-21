@@ -1,0 +1,25 @@
+---
+- name: Import validation tasks
+  ansible.builtin.import_tasks: validate.yml
+  become: no
+  tags:
+    - template
+    - validate
+    - template-validate
+    - always
+
+- name: Import installation tasks
+  ansible.builtin.import_tasks: install.yml
+  become: yes
+  tags:
+    - template
+    - install
+    - template-install
+
+- name: Import configuration tasks
+  ansible.builtin.import_tasks: configure.yml
+  become: yes
+  tags:
+    - template
+    - configure
+    - template-configure

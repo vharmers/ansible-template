@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Valentijn Harmers
+  description: Role used as a template for other roles
+  license: Public Domain
+  role_name: template
+  namespace: vharmers
+  min_ansible_version: "6.5"
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+  galaxy_tags:
+    - template
+dependencies: []

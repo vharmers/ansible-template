@@ -1,0 +1,27 @@
+---
+- name: Ensure configuration directory exists
+  ansible.builtin.file:
+    path: "{{ template_config_dir }}"
+    owner: "{{ template_user }}"
+    group: "{{ template_group }}"
+    mode: 0755
+    state: directory
+
+- name: Ensure configuration is present
+  ansible.builtin.template:
+    src: template.conf.j2
+    dest: "{{ template_config_dir }}/template.conf"
+    owner: "{{ template_user }}"
+    group: "{{ template_group }}"
+    mode: 0644
+  notify: Restart template
+
+- name: Ensure the template service is in the proper running state
+  ansible.builtin.service:
+    name: "{{ template_service }}"
+    state: "{{ template_enabled | ternary('started', 'stopped') }}"
+
+- name: Ensure the template service is in the proper startup state
+  ansible.builtin.service:
+    name: "{{ template_service }}"
+    enabled: "{{ template_enabled }}"
