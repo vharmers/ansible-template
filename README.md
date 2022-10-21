@@ -73,7 +73,7 @@ pip install ansible ansible-lint molecule molecule_vagrant pytest-testinfra
 License
 -------
 
-Public Domain
+[Unlicense](LICENSE)
 
 Author Information
 ------------------
