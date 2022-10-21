@@ -17,6 +17,7 @@ Role Variables
 | -------- | ------- | ----------- |
 | template_enabled | yes | Controls whenever the template service should be running and started at boot |
 | template_config_dir | `"/etc/template"` | The directory to put the configuration file in |
+| template_script_path | `"/usr/local/bin/template"` | The path where the template script is installed |
 | template_user | `"template"` | The user that the service should run under |
 | template_group | `"template"` | The group that the service should run under |
 | template_service | `"template"` | The name of the service |
