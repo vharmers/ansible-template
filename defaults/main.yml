@@ -1,5 +1,5 @@
 ---
-template_enabled: yes
+template_enable: yes
 template_config_dir: /etc/template
 template_script_path: /usr/local/bin/template
 template_user: template

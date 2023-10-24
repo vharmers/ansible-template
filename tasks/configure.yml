@@ -19,9 +19,9 @@
 - name: Ensure the template service is in the proper running state
   ansible.builtin.service:
     name: "{{ template_service }}"
-    state: "{{ template_enabled | ternary('started', 'stopped') }}"
+    state: "{{ template_enable | ternary('started', 'stopped') }}"
 
 - name: Ensure the template service is in the proper startup state
   ansible.builtin.service:
     name: "{{ template_service }}"
-    enabled: "{{ template_enabled }}"
+    enabled: "{{ template_enable }}"

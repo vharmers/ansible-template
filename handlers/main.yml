@@ -4,4 +4,4 @@
     name: "{{ template_service }}"
     state: restarted
   become: yes
-  when: template_enabled
+  when: template_enable

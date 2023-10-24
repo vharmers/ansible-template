@@ -15,7 +15,7 @@ Role Variables
 
 | Variable | Default | Description |
 | -------- | ------- | ----------- |
-| template_enabled | yes | Controls whenever the template service should be running and started at boot |
+| template_enable | yes | Controls whenever the template service should be running and started at boot |
 | template_config_dir | `"/etc/template"` | The directory to put the configuration file in |
 | template_script_path | `"/usr/local/bin/template"` | The path where the template script is installed |
 | template_user | `"template"` | The user that the service should run under |
@@ -48,7 +48,7 @@ Example Playbook
   roles:
     - vharmers.template
   vars:
-    template_enabled: no  # Install and configure but don't start the service yet
+    template_enable: no  # Install and configure but don't start the service yet
     template_config_dir: "/etc/foo"
     template_package: vim
 ```
